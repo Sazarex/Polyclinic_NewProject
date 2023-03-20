@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorizationService", "AuthorizationService\AuthorizationService.csproj", "{6B66E7C2-F241-4F00-9ABE-5CFFB21BC175}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseInfrastructure", "DatabaseInfrastructure\DatabaseInfrastructure.csproj", "{9A892447-3374-4120-9A3C-8C6B6C62411A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseInfrastructure", "DatabaseInfrastructure\DatabaseInfrastructure.csproj", "{9A892447-3374-4120-9A3C-8C6B6C62411A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatorInfrastructure", "MediatorInfrastructure\MediatorInfrastructure.csproj", "{EC9C7F5A-421F-41AA-9944-D1F3A46354D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,12 +43,17 @@ Global
 		{9A892447-3374-4120-9A3C-8C6B6C62411A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A892447-3374-4120-9A3C-8C6B6C62411A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A892447-3374-4120-9A3C-8C6B6C62411A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC9C7F5A-421F-41AA-9944-D1F3A46354D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC9C7F5A-421F-41AA-9944-D1F3A46354D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC9C7F5A-421F-41AA-9944-D1F3A46354D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC9C7F5A-421F-41AA-9944-D1F3A46354D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6B66E7C2-F241-4F00-9ABE-5CFFB21BC175} = {35658B28-DC98-4FD7-8E20-68234B4F1D92}
+		{EC9C7F5A-421F-41AA-9944-D1F3A46354D5} = {35658B28-DC98-4FD7-8E20-68234B4F1D92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {851C7250-0B51-41C1-AA84-1F161205CD22}

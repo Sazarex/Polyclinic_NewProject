@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseInfrastructure.DbContexts
 {
-    internal class CommandDbContext : BaseDbContext
+    public class CommandDbContext : BaseDbContext
     {
         public CommandDbContext(DbContextOptions options) : base(options)
         {

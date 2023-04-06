@@ -13,8 +13,14 @@ namespace DatabaseInfrastructure.DbContexts
         protected BaseDbContext( DbContextOptions options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
 
-        protected DbSet<Account> Accounts { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
 }

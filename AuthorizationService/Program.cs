@@ -1,12 +1,19 @@
 using AuthorizationService;
+using AuthorizationService.Options;
+using DatabaseInfrastructure;
 using Interfaces;
+using Interfaces.ServiceLayers;
+using Interfaces.ServiceLayersInterfaces;
+using MediatorInfrastructure;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
-builder.Services.AddTransient<HttpClient>();
+//builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("DefaultConnection"));
+builder.Services.RegisterDatabaseInfrastructure(builder.Configuration);
+builder.Services.RegisterMediatorInfrastructure();
 
 var app = builder.Build();
 
@@ -26,5 +33,4 @@ app.UseCors(builder =>
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.Run();

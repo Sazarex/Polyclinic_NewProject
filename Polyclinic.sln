@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Polyclinic", "Polyclinic\Polyclinic.csproj", "{76AF0261-AEEC-42C3-AE2D-DC1EE2D38776}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Polyclinic.Tests", "Polyclinic.Tests\Polyclinic.Tests.csproj", "{100A2EA0-77C0-4B71-9409-FB9B56A7EB7C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{35658B28-DC98-4FD7-8E20-68234B4F1D92}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\Interfaces.csproj", "{028371D4-CAAB-451A-A08D-690C4A759058}"
@@ -15,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorizationService", "Aut
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseInfrastructure", "DatabaseInfrastructure\DatabaseInfrastructure.csproj", "{9A892447-3374-4120-9A3C-8C6B6C62411A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatorInfrastructure", "MediatorInfrastructure\MediatorInfrastructure.csproj", "{EC9C7F5A-421F-41AA-9944-D1F3A46354D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatorInfrastructure", "MediatorInfrastructure\MediatorInfrastructure.csproj", "{EC9C7F5A-421F-41AA-9944-D1F3A46354D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{76AF0261-AEEC-42C3-AE2D-DC1EE2D38776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76AF0261-AEEC-42C3-AE2D-DC1EE2D38776}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76AF0261-AEEC-42C3-AE2D-DC1EE2D38776}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76AF0261-AEEC-42C3-AE2D-DC1EE2D38776}.Release|Any CPU.Build.0 = Release|Any CPU
-		{100A2EA0-77C0-4B71-9409-FB9B56A7EB7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{100A2EA0-77C0-4B71-9409-FB9B56A7EB7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{100A2EA0-77C0-4B71-9409-FB9B56A7EB7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{100A2EA0-77C0-4B71-9409-FB9B56A7EB7C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{028371D4-CAAB-451A-A08D-690C4A759058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{028371D4-CAAB-451A-A08D-690C4A759058}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{028371D4-CAAB-451A-A08D-690C4A759058}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -5,7 +5,9 @@ using Interfaces;
 using Interfaces.ServiceLayers;
 using Interfaces.ServiceLayersInterfaces;
 using MediatorInfrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
@@ -14,6 +16,7 @@ builder.Services.AddCors();
 //builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("DefaultConnection"));
 builder.Services.RegisterDatabaseInfrastructure(builder.Configuration);
 builder.Services.RegisterMediatorInfrastructure();
+builder.Services.RegisterConfigurationJWT(builder.Configuration);
 
 var app = builder.Build();
 
@@ -31,6 +34,7 @@ app.UseCors(builder =>
         .AllowAnyHeader();
 });
 app.UseAuthorization();
+
 
 app.MapControllers();
 app.Run();

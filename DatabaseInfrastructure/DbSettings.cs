@@ -1,4 +1,4 @@
-﻿namespace AuthorizationService.Options
+﻿namespace DatabaseInfrastructure
 {
     public class DbSettings
     {

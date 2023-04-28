@@ -1,11 +1,10 @@
-﻿using Interfaces.Domain;
+﻿using AuthorizationService.Options;
 using Interfaces.Dto;
-using Interfaces.ServiceLayersInterfaces;
-using Interfaces.ServicesInterfaces;
 using MediatorInfrastructure.Commands.Accounts;
+using MediatorInfrastructure.Commands.Authorization;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using static Interfaces.Common.CommonEnums;
+using Microsoft.Extensions.Options;
 
 namespace AuthorizationService
 {
@@ -14,18 +13,21 @@ namespace AuthorizationService
     public class AuthController : ControllerBase
     {
         private IMediator _mediator { get; set; }
+        private JWTOptions _jwtOptions { get; set; }
 
-        public AuthController(IMediator mediator)
+        public AuthController(IMediator mediator, IOptions<JWTOptions> jwtOptions)
         {
             _mediator = mediator;
+            _jwtOptions = jwtOptions.Value;
         }
 
-        //public async Task<ActionResult> Login([FromBody] string username, [FromBody] string password)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        [HttpPost("LogIn")]
+        public async Task<string> Login([FromBody] LoginDto request)
+        {
+            return await _mediator.Send(new AuthorizationCommand(request, ConfiguringJWT.GetBytesFromKey(_jwtOptions.SecurityKey)));
+        }
 
-        [HttpPost]
+        [HttpPost("Register")]
         public async Task<ActionResult> Register([FromBody] CreateAccountCommand command)
         {
             var result = await _mediator.Send(command);

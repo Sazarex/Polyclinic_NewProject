@@ -1,4 +1,4 @@
-using AuthorizationService;
+﻿using AuthorizationService;
 using AuthorizationService.Options;
 using DatabaseInfrastructure;
 using Interfaces;
@@ -13,10 +13,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
-//builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("DefaultConnection"));
+
+#region Наши сервисы
 builder.Services.RegisterDatabaseInfrastructure(builder.Configuration);
 builder.Services.RegisterMediatorInfrastructure();
-builder.Services.RegisterConfigurationJWT(builder.Configuration);
+builder.Services.RegisterConfigurationJWT(builder.Configuration); 
+#endregion
 
 var app = builder.Build();
 
@@ -34,6 +36,7 @@ app.UseCors(builder =>
         .AllowAnyHeader();
 });
 app.UseAuthorization();
+app.UseAuthentication();
 
 
 app.MapControllers();

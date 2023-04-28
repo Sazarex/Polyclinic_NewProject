@@ -14,6 +14,7 @@ namespace MediatorInfrastructure
     {
         public static IServiceCollection RegisterMediatorInfrastructure(this IServiceCollection services)
         {
+            services.AddScoped<IAuthorizationService, AuthorizationServiceLayer>();
             services.AddScoped<IPasswordService, PasswordServiceLayer>();
             services.AddMediatR(_ => _.RegisterServicesFromAssembly(Assembly.Load("MediatorInfrastructure")));
             return services;

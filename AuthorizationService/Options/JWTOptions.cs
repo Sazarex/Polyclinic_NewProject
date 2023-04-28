@@ -1,7 +1,9 @@
-﻿namespace AuthorizationService.Options
+﻿using Interfaces.OptionsInterfaces;
+
+namespace AuthorizationService.Options
 {
-    public class JWTOptions
+    public class JWTOptions : IJWTOptions
     {
-        public string SecurityKey { get; set; }
+        public string SecurityKey { get ; set; }
     }
 }

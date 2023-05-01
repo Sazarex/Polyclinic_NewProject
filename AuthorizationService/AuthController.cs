@@ -24,6 +24,8 @@ namespace AuthorizationService
         [HttpPost("LogIn")]
         public async Task<string> Login([FromBody] LoginDto request)
         {
+            //В request приходят данные из клиента (пароль и логин)
+            //Создается команда для обработки авторизации, вносится в команду данные из клиенат и секретный ключ для генерации. jwt
             return await _mediator.Send(new AuthorizationCommand(request, ConfiguringJWT.GetBytesFromKey(_jwtOptions.SecurityKey)));
         }
 

@@ -7,9 +7,15 @@ namespace Interfaces.ServiceLayers
 {
     public class AuthorizationServiceLayer : IAuthorizationService
     {
+        /// <summary>
+        /// Генерирует jwt-токен
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="keyAtBytes"></param>
+        /// <returns></returns>
         public async Task<string> GetTokenAsync(string login, byte[] keyAtBytes)
         {
-            var claims = new List<Claim> { new Claim(ClaimTypes.Name, login)};
+            var claims = new List<Claim> { new Claim(ClaimTypes.Role, "Adminus")};
             var jwt = new JwtSecurityToken(
                     claims: claims,
                     expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(2)), // время действия 2 минуты

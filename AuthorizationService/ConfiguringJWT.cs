@@ -50,8 +50,11 @@ namespace AuthorizationService
                         {
                             ValidateIssuerSigningKey = true,
                             IssuerSigningKey = new SymmetricSecurityKey(key),
-                            ValidateIssuer = false,
-                            ValidateAudience = false
+                            ValidateIssuer = true,
+                            ValidateAudience = true,
+                            ValidateLifetime = true,
+                            ValidIssuer = jwtOptions.Value.Issuer,
+                            ValidAudience = jwtOptions.Value.Audience,
                         };
                     });
 

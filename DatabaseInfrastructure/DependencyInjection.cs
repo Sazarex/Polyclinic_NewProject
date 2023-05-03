@@ -1,11 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
 using DatabaseInfrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +15,7 @@ namespace DatabaseInfrastructure
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            services.AddDbContextPool<CommandDbContext>(options => options.UseNpgsql(connectionString ?? "Not Found"));
+            services.AddDbContextPool<CommandDbContext>(options => options.UseNpgsql(connectionString));
 
             return services;
         }

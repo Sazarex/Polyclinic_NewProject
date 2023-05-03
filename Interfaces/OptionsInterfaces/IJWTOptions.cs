@@ -12,5 +12,12 @@ namespace Interfaces.OptionsInterfaces
         /// Секретный ключ из файла с setting'ами json
         /// </summary>
         public string SecurityKey { get; set; }
+        public string Audience { get; set; }
+        public string Issuer { get; set; }
+
+        /// <summary>
+        /// Ключ в массиве байтов, для credentials
+        /// </summary>
+        public byte[] Key { get; set; }
     }
 }

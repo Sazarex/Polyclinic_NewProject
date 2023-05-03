@@ -1,10 +1,7 @@
 ﻿using Interfaces.Domain;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Interfaces.Common;
+using Npgsql;
 
 namespace DatabaseInfrastructure.DbContexts
 {
@@ -13,14 +10,16 @@ namespace DatabaseInfrastructure.DbContexts
         protected BaseDbContext( DbContextOptions options)
             : base(options)
         {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
         public DbSet<Account> Accounts { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        //Сопоставления енума из бд с енумом из проекта
+        static BaseDbContext() => NpgsqlConnection.GlobalTypeMapper.MapEnum<Role>();
+
+        //EF Core cоздает тип енума для бд
+        protected override void OnModelCreating(ModelBuilder modelBuilder) => modelBuilder.HasPostgresEnum<Role>();
     }
 }

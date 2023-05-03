@@ -3,6 +3,7 @@ using Interfaces.Dto;
 using MediatorInfrastructure.Commands.Accounts;
 using MediatorInfrastructure.Commands.Authorization;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
@@ -19,6 +20,7 @@ namespace AuthorizationService
         {
             _mediator = mediator;
             _jwtOptions = jwtOptions.Value;
+            _jwtOptions.Key = ConfiguringJWT.GetBytesFromKey(_jwtOptions.SecurityKey);
         }
 
         [HttpPost("LogIn")]
@@ -26,7 +28,7 @@ namespace AuthorizationService
         {
             //В request приходят данные из клиента (пароль и логин)
             //Создается команда для обработки авторизации, вносится в команду данные из клиенат и секретный ключ для генерации. jwt
-            return await _mediator.Send(new AuthorizationCommand(request, ConfiguringJWT.GetBytesFromKey(_jwtOptions.SecurityKey)));
+            return await _mediator.Send(new AuthorizationCommand(request, _jwtOptions));
         }
 
         [HttpPost("Register")]
@@ -34,6 +36,14 @@ namespace AuthorizationService
         {
             var result = await _mediator.Send(command);
             return Ok(result);
+        }
+
+
+        [HttpPost("Testing")]
+        [Authorize(Roles = "Administrator")]
+        public async Task<ActionResult> Testing()
+        {
+            return Ok("11112312");
         }
     }
 }

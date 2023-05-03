@@ -1,4 +1,5 @@
-﻿using Interfaces.OptionsInterfaces;
+﻿using Interfaces.Domain;
+using Interfaces.OptionsInterfaces;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace Interfaces.ServiceLayersInterfaces
 {
     public interface IAuthorizationService
     {
-        public Task<string> GetTokenAsync(string login, byte[] keyAtBytes);
+        public Task<string> GetTokenAsync(Account account, IJWTOptions jWTOptions);
 
     }
 }

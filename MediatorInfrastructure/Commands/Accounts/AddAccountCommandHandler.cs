@@ -1,12 +1,7 @@
 ﻿using DatabaseInfrastructure.DbContexts;
+using Interfaces.Common;
 using Interfaces.Domain;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Interfaces.Common.CommonEnums;
 
 namespace MediatorInfrastructure.Commands.Accounts
 {
@@ -26,7 +21,7 @@ namespace MediatorInfrastructure.Commands.Accounts
         {
             Account newAcc = new Account();
             newAcc.Username = request.Username;
-            newAcc.Role = Roles.User;
+            newAcc.Role = Role.User;
             newAcc.PasswordHash = request.PasswordHash;
             newAcc.PasswordSalt = request.PasswordSalt;
             _commandDbContext.Accounts.Add(newAcc);

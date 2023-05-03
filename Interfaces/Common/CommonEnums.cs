@@ -1,12 +1,6 @@
 ﻿namespace Interfaces.Common
 {
-    public class CommonEnums
+    internal class CommonEnums
     {
-        public enum Roles
-        {
-            Administrator = 1,
-            Moderator = 2,
-            User = 3
-        }
     }
 }

@@ -44,7 +44,7 @@ namespace MediatorInfrastructure.Commands.Authorization
 
                 //Отдаем токен если верный пароль
                 if (isCorrectPassword)
-                return await _authorizationService.GetTokenAsync(command.RequestLoginDto.Login, command.Key);
+                return await _authorizationService.GetTokenAsync(entityFromDb, command.JWTOptions);
             }
 
             throw new UnauthorizedAccessException("Неверные данные пользователя.");

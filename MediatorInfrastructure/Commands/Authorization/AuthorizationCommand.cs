@@ -1,4 +1,5 @@
 ﻿using Interfaces.Dto;
+using Interfaces.OptionsInterfaces;
 using MediatR;
 
 namespace MediatorInfrastructure.Commands.Authorization
@@ -10,15 +11,12 @@ namespace MediatorInfrastructure.Commands.Authorization
         /// </summary>
         public LoginDto RequestLoginDto { get; set; }
 
-        /// <summary>
-        /// Ключ в виде массива байтов
-        /// </summary>
-        public byte[] Key { get; set; }
+        public IJWTOptions JWTOptions { get; set; }
 
-        public AuthorizationCommand(LoginDto requestLoginDto, byte[] key)
+        public AuthorizationCommand(LoginDto requestLoginDto, IJWTOptions jwtOptions)
         {
             RequestLoginDto = requestLoginDto;
-            Key = key;
+            JWTOptions = jwtOptions;
         }
     }
 }

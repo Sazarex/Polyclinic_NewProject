@@ -35,7 +35,7 @@ namespace AuthorizationService
             //Получаем байты из JWTOptions для SymmetricSecurityKey 
             var key = GetBytesFromKey(jwtOptions.Value.SecurityKey);
 
-            //Добавляется схема jwt
+            //Добавляется схема аутентификации jwt
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

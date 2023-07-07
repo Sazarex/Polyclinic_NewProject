@@ -32,10 +32,9 @@ namespace AuthorizationService
         }
 
         [HttpPost("Register")]
-        public async Task<ActionResult> Register([FromBody] CreateAccountCommand command)
+        public async Task<IActionResult> Register([FromBody]CreateAccountCommand command)
         {
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            return await _mediator.Send(command);
         }
 
 

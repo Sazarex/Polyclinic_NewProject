@@ -1,13 +1,6 @@
 ﻿using AuthorizationService;
-using AuthorizationService.Options;
 using DatabaseInfrastructure;
-using Interfaces;
-using Interfaces.ServiceLayers;
-using Interfaces.ServiceLayersInterfaces;
 using MediatorInfrastructure;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using System.Reflection;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();

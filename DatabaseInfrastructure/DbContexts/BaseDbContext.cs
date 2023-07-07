@@ -5,9 +5,9 @@ using Npgsql;
 
 namespace DatabaseInfrastructure.DbContexts
 {
-    public abstract class BaseDbContext: DbContext
+    public abstract class BaseDbContext : DbContext
     {
-        protected BaseDbContext( DbContextOptions options)
+        protected BaseDbContext(DbContextOptions options)
             : base(options)
         {
             Database.EnsureDeleted();
@@ -17,9 +17,15 @@ namespace DatabaseInfrastructure.DbContexts
         public DbSet<Account> Accounts { get; set; }
 
         //Сопоставления енума из бд с енумом из проекта
-        static BaseDbContext() => NpgsqlConnection.GlobalTypeMapper.MapEnum<Role>();
+        static BaseDbContext()
+        {
+            NpgsqlConnection.GlobalTypeMapper.MapEnum<Role>();
+        }
 
         //EF Core cоздает тип енума для бд
-        protected override void OnModelCreating(ModelBuilder modelBuilder) => modelBuilder.HasPostgresEnum<Role>();
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.HasPostgresEnum<Role>();
+        }
     }
 }
